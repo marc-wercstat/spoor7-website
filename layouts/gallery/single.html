@@ -1,0 +1,37 @@
+{{ define "main" }}
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-inner">
+      {{ with .Params.eyebrow }}<p class="page-hero-eyebrow">{{ . }}</p>{{ end }}
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.subtitle }}<p class="page-hero-lead">{{ . }}</p>{{ end }}
+    </div>
+  </div>
+</section>
+<article class="section">
+  <div class="container">
+    {{ with .Content }}<div class="prose narrow-block">{{ . }}</div>{{ end }}
+
+    {{ $photos := slice "img/optreden_1.jpg" "img/optreden_2.jpg" "img/optreden_3.jpg" "img/optreden_4.jpg" }}
+    <div id="gallery" class="gallery-grid">
+      {{ range $i, $name := $photos }}
+        {{ $p := resources.Get $name }}
+        {{ $thumb := $p.Fill "700x525 Center q78" }}
+        <a class="gallery-item" href="#foto-{{ $i }}" aria-label="Vergroot foto {{ add $i 1 }}">
+          <img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" alt="Spoor 7 live — foto {{ add $i 1 }}" loading="lazy">
+        </a>
+      {{ end }}
+    </div>
+
+    {{ range $i, $name := $photos }}
+      {{ $p := resources.Get $name }}
+      {{ $full := $p.Resize "1600x q80" }}
+      <div class="lightbox" id="foto-{{ $i }}">
+        <a class="lightbox-backdrop" href="#gallery" aria-label="Sluiten"></a>
+        <a class="lightbox-close" href="#gallery" aria-label="Sluiten">&times;</a>
+        <img class="lightbox-img" src="{{ $full.RelPermalink }}" width="{{ $full.Width }}" height="{{ $full.Height }}" alt="Spoor 7 live — foto {{ add $i 1 }}">
+      </div>
+    {{ end }}
+  </div>
+</article>
+{{ end }}

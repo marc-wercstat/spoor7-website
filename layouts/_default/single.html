@@ -1,0 +1,21 @@
+{{ define "main" }}
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-inner">
+      {{ with .Params.eyebrow }}<p class="page-hero-eyebrow">{{ . }}</p>{{ end }}
+      <h1>{{ .Title }}</h1>
+      {{ with .Params.subtitle }}<p class="page-hero-lead">{{ . }}</p>{{ end }}
+    </div>
+  </div>
+</section>
+<article class="section">
+  <div class="container narrow">
+    <div class="prose">
+      {{ .Content }}
+    </div>
+    {{ if .Params.contact_form }}
+      {{ partial "contact-form.html" . }}
+    {{ end }}
+  </div>
+</article>
+{{ end }}

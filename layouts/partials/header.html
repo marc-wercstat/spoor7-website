@@ -1,0 +1,33 @@
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="brand" aria-label="Spoor 7 — home">
+      <img class="brand-logo" src="/img/spoor7_logo_white_1.svg" alt="Spoor 7" width="150" height="48">
+    </a>
+    <nav class="site-nav" aria-label="Hoofdmenu">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Menu openen">
+        <svg class="nav-toggle-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false">
+          <line x1="4" y1="7"  x2="20" y2="7"/>
+          <line x1="4" y1="12" x2="20" y2="12"/>
+          <line x1="4" y1="17" x2="20" y2="17"/>
+        </svg>
+      </button>
+      <ul id="primary-menu" class="nav-list">
+        {{ range .Site.Menus.main }}
+          {{ $exact := eq $.RelPermalink .URL }}
+          {{ $active := or $exact (and (ne .URL "/") (hasPrefix $.RelPermalink .URL)) }}
+          <li class="nav-item{{ if $active }} is-active{{ end }}">
+            <a href="{{ .URL }}"{{ if $exact }} aria-current="page"{{ else if $active }} aria-current="true"{{ end }}>{{ .Name }}</a>
+          </li>
+        {{ end }}
+      </ul>
+    </nav>
+  </div>
+</header>
+<script>
+  document.querySelector('.nav-toggle')?.addEventListener('click', e => {
+    const btn = e.currentTarget;
+    const open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!open));
+    document.getElementById('primary-menu').classList.toggle('is-open', !open);
+  });
+</script>

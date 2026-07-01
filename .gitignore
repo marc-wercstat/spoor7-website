@@ -1,0 +1,10 @@
+/public/
+/resources/_gen/
+.hugo_build.lock
+.hugo-server.pid
+.hugo-server.log
+.DS_Store
+node_modules/
+.dev.vars
+.wrangler/
+/.cache/

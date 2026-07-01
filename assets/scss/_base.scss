@@ -1,0 +1,105 @@
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+  padding: 0.6rem 1rem;
+  border-radius: 0 0 var(--radius) 0;
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-110%);
+  transition: transform 120ms ease;
+
+  &:focus { transform: translateY(0); outline: 2px solid #fff; outline-offset: 2px; }
+}
+
+main:focus { outline: none; }
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--color-fg);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img, svg { max-width: 100%; height: auto; display: block; }
+
+a {
+  color: var(--color-link);
+  text-decoration: none;
+  &:hover { color: var(--color-link-hover); text-decoration: underline; }
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.08;
+  margin: 0 0 0.5em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+h1 { font-size: clamp(2.2rem, calc(4vw + 1rem), 3.6rem); }
+h2 { font-size: clamp(1.7rem, calc(2vw + 1rem), 2.6rem); }
+h3 { font-size: 1.4rem; letter-spacing: 0.02em; }
+h4 { font-size: 1.15rem; }
+
+p { margin: 0 0 1em; }
+
+.eyebrow {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--color-accent);
+  margin: 0 0 0.6rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.7rem;
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: background-color 140ms ease, color 140ms ease, border-color 140ms ease, transform 140ms ease;
+  text-decoration: none;
+
+  &:hover { text-decoration: none; transform: translateY(-1px); }
+
+  &.btn-primary {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+    &:hover { background: var(--color-accent-hover); color: var(--color-accent-ink); }
+  }
+  &.btn-ghost {
+    background: transparent;
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    &:hover { background: var(--color-accent); color: var(--color-accent-ink); }
+  }
+  &.btn-ghost-light {
+    background: transparent;
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.6);
+    &:hover { background: #fff; color: #111; }
+  }
+}

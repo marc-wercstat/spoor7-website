@@ -1,0 +1,30 @@
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand-block">
+      <img class="footer-logo" src="/img/spoor7_logo_white_1.svg" alt="Spoor 7" width="160" height="52">
+      <p class="footer-tagline">{{ .Site.Params.description }}</p>
+    </div>
+    <div>
+      <h3>Boeking &amp; contact</h3>
+      <address>
+        E: <a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a><br>
+        Regio: {{ .Site.Params.region }}
+      </address>
+      <p class="footer-cta"><a href="/contact/" class="btn btn-primary">Vraag een boeking aan</a></p>
+    </div>
+    <div>
+      <h3>Volg ons</h3>
+      <ul class="footer-links">
+        {{ range .Site.Params.social }}
+          <li><a href="{{ .url }}" rel="noopener">{{ .name }}</a></li>
+        {{ end }}
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>&copy; {{ now.Format "2006" }} Spoor 7</span>
+    <nav class="footer-legal" aria-label="Footermenu">
+      {{ range .Site.Menus.main }}<a href="{{ .URL }}">{{ .Name }}</a>{{ end }}
+    </nav>
+  </div>
+</footer>

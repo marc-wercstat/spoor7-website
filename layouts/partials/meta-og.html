@@ -1,0 +1,32 @@
+{{- /* Open Graph + Twitter Card metadata (single language). */ -}}
+{{- $title := cond .IsHome (printf "%s | %s" .Site.Title .Site.Params.description) (printf "%s | %s" .Title .Site.Title) -}}
+{{- $desc := "" -}}
+{{- with .Description }}{{ $desc = . }}{{ end -}}
+{{- if not $desc }}{{ $desc = .Site.Params.description }}{{ end -}}
+
+{{- $img := .Params.og_image | default .Site.Params.og_image -}}
+{{- $imgURL := "" -}}
+{{- with $img -}}
+  {{- if or (hasPrefix . "http://") (hasPrefix . "https://") -}}
+    {{- $imgURL = . -}}
+  {{- else -}}
+    {{- $imgURL = . | absURL -}}
+  {{- end -}}
+{{- end -}}
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:locale" content="{{ .Site.Params.ogLocale }}">
+{{- with $imgURL }}
+<meta property="og:image" content="{{ . }}">
+<meta property="og:image:alt" content="{{ $title }}">
+{{- end }}
+<meta name="twitter:card" content="{{ if $imgURL }}summary_large_image{{ else }}summary{{ end }}">
+<meta name="twitter:title" content="{{ $title }}">
+<meta name="twitter:description" content="{{ $desc }}">
+{{- with $imgURL }}
+<meta name="twitter:image" content="{{ . }}">
+{{- end }}

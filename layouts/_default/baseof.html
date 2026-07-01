@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if .IsHome }}{{ .Site.Title }} | {{ .Site.Params.description }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <link rel="canonical" href="{{ .Permalink }}">
+  {{ partial "meta-og.html" . }}
+  {{ partial "json-ld.html" . }}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+  {{ $sass := resources.Get "scss/main.scss" | css.Sass (dict "outputStyle" "compressed" "targetPath" "css/main.css") | resources.Fingerprint }}
+  <link rel="stylesheet" href="{{ $sass.RelPermalink }}" integrity="{{ $sass.Data.Integrity }}">
+  <link rel="icon" type="image/png" href="/img/spoor_7_7_small_black_background.png">
+  <link rel="apple-touch-icon" href="/img/spoor_7_7_small_black_background.png">
+</head>
+<body>
+  <a class="skip-link" href="#main">Naar inhoud</a>
+  {{ partial "header.html" . }}
+  <main id="main" tabindex="-1">
+    {{ block "main" . }}{{ end }}
+  </main>
+  {{ partial "footer.html" . }}
+</body>
+</html>

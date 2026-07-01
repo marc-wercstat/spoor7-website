@@ -1,0 +1,43 @@
+<form class="contact-form" id="contact-form" method="POST" action="/api/contact" novalidate
+  data-msg-sending="Versturen…"
+  data-msg-success="Bedankt voor je aanvraag! We nemen zo snel mogelijk contact met je op."
+  data-msg-error="Er ging iets mis. Probeer het later opnieuw of mail direct naar marc@vankessel-it.com."
+  data-msg-network="Netwerkfout. Controleer je verbinding en probeer het opnieuw.">
+  <div class="form-row">
+    <label for="cf-name">Naam <span class="req" aria-hidden="true">*</span></label>
+    <input type="text" id="cf-name" name="name" required autocomplete="name" maxlength="200">
+  </div>
+  <div class="form-grid-2">
+    <div class="form-row">
+      <label for="cf-email">E-mail <span class="req" aria-hidden="true">*</span></label>
+      <input type="email" id="cf-email" name="email" required autocomplete="email" maxlength="200">
+    </div>
+    <div class="form-row">
+      <label for="cf-phone">Telefoon</label>
+      <input type="tel" id="cf-phone" name="phone" autocomplete="tel" maxlength="60">
+    </div>
+  </div>
+  <div class="form-row">
+    <label for="cf-occasion">Gelegenheid &amp; gewenste datum</label>
+    <input type="text" id="cf-occasion" name="occasion" placeholder="Bijv. bruiloft, 12 juni 2026" maxlength="200">
+  </div>
+  <div class="form-row">
+    <label for="cf-message">Bericht <span class="req" aria-hidden="true">*</span></label>
+    <textarea id="cf-message" name="message" rows="6" required maxlength="5000" placeholder="Vertel ons over jullie feest: locatie, verwacht aantal gasten, speeltijden…"></textarea>
+  </div>
+
+  <div class="form-hp" aria-hidden="true">
+    <label>Laat dit veld leeg
+      <input type="text" name="website" tabindex="-1" autocomplete="off">
+    </label>
+  </div>
+
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary">Verstuur aanvraag</button>
+    <p class="form-note">We gebruiken je gegevens alleen om je aanvraag te beantwoorden.</p>
+  </div>
+  <p class="form-status" role="status" aria-live="polite"></p>
+</form>
+
+{{ $js := resources.Get "js/contact-form.js" | resources.Minify | resources.Fingerprint }}
+<script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>

@@ -1,0 +1,47 @@
+baseURL = 'https://www.spoor7coverband.nl/'
+languageCode = 'nl-NL'
+defaultContentLanguage = 'nl'
+title = 'Spoor 7'
+enableGitInfo = true
+
+[markup]
+  defaultMarkdownHandler = 'goldmark'
+  [markup.goldmark.renderer]
+    unsafe = true
+
+[security]
+  [security.exec]
+    allow = ['^(dart-)?sass(-embedded)?$', '^go$', '^git$', '^npx$', '^postcss$']
+
+[params]
+  description = 'Coverband voor de lekkerste 70s & 80s hits — voor bruiloften, feesten en festivals'
+  email = 'marc@vankessel-it.com'
+  region = 'Zuid-Nederland'
+  og_image = '/img/spoor_7_7_small_black_background.png'
+  ogLocale = 'nl_NL'
+
+[[params.social]]
+  name = 'Facebook'
+  url = 'https://www.facebook.com/'
+
+[[params.social]]
+  name = 'Instagram'
+  url = 'https://www.instagram.com/'
+
+[menus]
+  [[menus.main]]
+    name = 'Home'
+    url = '/'
+    weight = 10
+  [[menus.main]]
+    name = "Foto's"
+    url = '/fotos/'
+    weight = 20
+  [[menus.main]]
+    name = 'Over de band'
+    url = '/over/'
+    weight = 30
+  [[menus.main]]
+    name = 'Boeking & contact'
+    url = '/contact/'
+    weight = 40

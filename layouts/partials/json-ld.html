@@ -1,0 +1,39 @@
+{{- /* JSON-LD structured data: MusicGroup + WebSite. */ -}}
+{{- $site := .Site -}}
+{{- $orgID := printf "%s#band" $site.BaseURL -}}
+{{- $siteID := printf "%s#website" $site.BaseURL -}}
+{{- $logo := "img/spoor_7_7.png" | absURL -}}
+
+{{- $band := dict
+  "@type" "MusicGroup"
+  "@id" $orgID
+  "name" $site.Title
+  "url" $site.BaseURL
+  "logo" $logo
+  "image" $logo
+  "email" $site.Params.email
+  "genre" (slice "Cover band" "70s" "80s" "Pop" "Rock")
+  "description" $site.Params.description
+-}}
+
+{{- $sameAs := slice -}}
+{{- range $site.Params.social -}}
+  {{- $sameAs = $sameAs | append .url -}}
+{{- end -}}
+{{- if $sameAs -}}
+  {{- $band = merge $band (dict "sameAs" $sameAs) -}}
+{{- end -}}
+
+{{- $website := dict
+  "@type" "WebSite"
+  "@id" $siteID
+  "url" $site.BaseURL
+  "name" $site.Title
+  "inLanguage" "nl-NL"
+  "publisher" (dict "@id" $orgID)
+-}}
+
+{{- $payload := dict "@context" "https://schema.org" "@graph" (slice $band $website) -}}
+<script type="application/ld+json">
+{{ $payload | jsonify (dict "indent" "  ") | safeJS }}
+</script>

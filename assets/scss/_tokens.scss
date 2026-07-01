@@ -1,0 +1,31 @@
+// Brand tokens for Spoor 7 — a dark, gig-poster feel with a warm gold accent.
+:root {
+  --color-bg:        #0d0d10;
+  --color-bg-alt:    #15151b;
+  --color-surface:   #1c1c24;
+  --color-fg:        #f3efe8;
+  --color-fg-muted:  #aca69b;
+  --color-border:    rgba(255, 255, 255, 0.12);
+
+  --color-accent:        #e6a53c;
+  --color-accent-hover:  #f2b957;
+  --color-accent-ink:    #1a1204; // text on top of the gold accent
+
+  --color-link:          #f2b957;
+  --color-link-hover:    #ffffff;
+
+  --font-sans:    'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Oswald', 'Inter', system-ui, sans-serif;
+
+  --radius-sm: 4px;
+  --radius:    10px;
+  --radius-lg: 18px;
+
+  --shadow:    0 10px 30px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.6);
+
+  --container-max: 1160px;
+  --container-narrow: 760px;
+
+  --header-height: 76px;
+}
