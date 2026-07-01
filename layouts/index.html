@@ -57,6 +57,21 @@
   </div>
 </section>
 
+{{ with resources.Get "img/spoor7_poster.jpg" }}
+{{ $poster := .Resize "1200x q78" }}
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head section-center">
+      <p class="eyebrow">Affiche</p>
+      <h2>Spoor 7 op de bühne</h2>
+    </div>
+    <figure class="poster">
+      <img src="{{ $poster.RelPermalink }}" width="{{ $poster.Width }}" height="{{ $poster.Height }}" alt="Poster van Spoor 7" loading="lazy">
+    </figure>
+  </div>
+</section>
+{{ end }}
+
 <section class="section cta-band">
   <div class="container narrow section-center">
     <h2>Boek Spoor 7 voor jullie feest</h2>

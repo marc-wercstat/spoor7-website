@@ -38,7 +38,7 @@
 
 .lightbox-img {
   position: relative;
-  max-width: min(1100px, 96vw);
+  max-width: clamp(300px, 96vw, 1100px);
   max-height: 90vh;
   width: auto;
   height: auto;

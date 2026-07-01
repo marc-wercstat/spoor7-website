@@ -4,6 +4,9 @@ defaultContentLanguage = 'nl'
 title = 'Spoor 7'
 enableGitInfo = true
 
+# No taxonomies for a simple band site (removes default tags/categories pages).
+[taxonomies]
+
 [markup]
   defaultMarkdownHandler = 'goldmark'
   [markup.goldmark.renderer]
