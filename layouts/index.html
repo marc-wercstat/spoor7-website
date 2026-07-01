@@ -33,7 +33,6 @@
       <li class="card"><h3>Bruiloften</h3><p>De perfecte soundtrack voor jullie mooiste dag — van het eerste dansje tot laat op de avond.</p></li>
       <li class="card"><h3>Bedrijfsfeesten</h3><p>Een borrel, jubileum of personeelsfeest dat iedereen zich blijft herinneren.</p></li>
       <li class="card"><h3>Festivals &amp; pleinfeesten</h3><p>Meezingers waar het hele publiek uit z'n dak gaat.</p></li>
-      <li class="card"><h3>Verjaardagen &amp; feesten</h3><p>Een bijzonder feestje verdient een echte live band.</p></li>
     </ul>
   </div>
 </section>
@@ -45,7 +44,7 @@
       <h2>Spoor 7 live</h2>
     </div>
     <div class="photo-strip">
-      {{ range slice "img/optreden_2.jpg" "img/optreden_3.jpg" "img/optreden_4.jpg" "img/optreden_1.jpg" }}
+      {{ range slice "img/optreden_2.jpg" "img/optreden_3.jpg" "img/optreden_1.jpg" "img/optreden_4.jpg" }}
         {{ $p := resources.Get . }}
         {{ $t := $p.Fill "600x600 Center q78" }}
         <a class="photo-strip-item" href="/fotos/">
