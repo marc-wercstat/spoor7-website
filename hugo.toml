@@ -18,7 +18,7 @@ enableGitInfo = true
 
 [params]
   description = 'Coverband met muziek uit de jaren 70 en 80 — voor bruiloften, feesten en festivals'
-  #email = 'marc@vankessel-it.com'
+  email = 'marcvankessel@gmail.com'
   region = 'Zuid-Nederland'
   og_image = '/img/spoor_7_7_small_black_background.png'
   ogLocale = 'nl_NL'

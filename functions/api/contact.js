@@ -3,7 +3,7 @@
 //
 // Required env vars (set in Cloudflare Pages → Settings → Environment variables):
 //   RESEND_API_KEY  Resend API token (https://resend.com/api-keys)
-//   CONTACT_TO      Recipient address, e.g. marc@vankessel-it.com
+//   CONTACT_TO      Recipient address, e.g. marcvankessel@gmail.com
 //   CONTACT_FROM    Verified sender, e.g. "Spoor 7 website <noreply@spoor7coverband.nl>"
 
 export async function onRequestPost({ request, env }) {
@@ -36,6 +36,19 @@ export async function onRequestPost({ request, env }) {
     return json({ ok: false, error: "Ongeldig e-mailadres." }, 400);
   }
 
+  const apiKey      = str(env.RESEND_API_KEY);
+  const contactTo   = str(env.CONTACT_TO);
+  const contactFrom = str(env.CONTACT_FROM);
+  if (!apiKey || !contactTo || !contactFrom) {
+    console.error("Contact form misconfigured, missing env vars:", {
+      RESEND_API_KEY: !!apiKey, CONTACT_TO: !!contactTo, CONTACT_FROM: !!contactFrom,
+    });
+    return json(
+      { ok: false, error: "Het formulier is tijdelijk niet beschikbaar. Mail direct naar marcvankessel@gmail.com." },
+      500,
+    );
+  }
+
   const safeName = name.replace(/[\r\n]+/g, " ");
   const lines = [
     `Naam: ${name}`,
@@ -46,26 +59,35 @@ export async function onRequestPost({ request, env }) {
     message,
   ].filter((x) => x !== null);
 
-  const resp = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${env.RESEND_API_KEY}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from: env.CONTACT_FROM,
-      to: [env.CONTACT_TO],
-      reply_to: email,
-      subject: `Boekingsaanvraag: ${safeName}`,
-      text: lines.join("\n"),
-    }),
-  });
+  let resp;
+  try {
+    resp = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: contactFrom,
+        to: [contactTo],
+        reply_to: email,
+        subject: `Boekingsaanvraag: ${safeName}`,
+        text: lines.join("\n"),
+      }),
+    });
+  } catch (err) {
+    console.error("Resend fetch threw:", err && err.message);
+    return json(
+      { ok: false, error: "Verzenden mislukt, probeer het later opnieuw of mail direct naar marcvankessel@gmail.com." },
+      502,
+    );
+  }
 
   if (!resp.ok) {
     const detail = await resp.text().catch(() => "");
     console.error("Resend error", resp.status, detail);
     return json(
-      { ok: false, error: "Verzenden mislukt, probeer het later opnieuw of mail direct naar marc@vankessel-it.com." },
+      { ok: false, error: "Verzenden mislukt, probeer het later opnieuw of mail direct naar marcvankessel@gmail.com." },
       502,
     );
   }
