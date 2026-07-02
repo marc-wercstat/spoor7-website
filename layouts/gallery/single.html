@@ -12,7 +12,7 @@
   <div class="container">
     {{ with .Content }}<div class="prose narrow-block">{{ . }}</div>{{ end }}
 
-    {{ $photos := slice "img/optreden_1.jpg" "img/optreden_2.jpg" "img/optreden_3.jpg" "img/optreden_4.jpg" }}
+    {{ $photos := slice "img/optreden_1.jpg" "img/optreden_2.jpg" "img/optreden_3.jpg" "img/optreden_4.jpg" "img/optreden_5.jpg"}}
     <div id="gallery" class="gallery-grid">
       {{ range $i, $name := $photos }}
         {{ $p := resources.Get $name }}
