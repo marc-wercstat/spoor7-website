@@ -29,8 +29,8 @@ De function `functions/api/contact.js` verwacht deze omgevingsvariabelen:
 
 | Variabele        | Voorbeeld                                        |
 | ---------------- | ------------------------------------------------ |
-| `RESEND_API_KEY` | `re_xxxxxxxx` (Resend API key)                   |
-| `CONTACT_TO`     | `marc@vankessel-it.com`                          |
+| `RESEND_API_KEY` | `re_iXVNk688_Ax6QgtgVGh73nU7VimayQddF` (Resend API key)                   |
+| `CONTACT_TO`     | `marcvankessel@gmail.com`                          |
 | `CONTACT_FROM`   | `Spoor 7 website <noreply@spoor7coverband.nl>`   |
 
 De afzender (`CONTACT_FROM`) moet een op een geverifieerd domein in Resend gebaseerd adres zijn.
