@@ -30,7 +30,7 @@ De function `functions/api/contact.js` verwacht deze omgevingsvariabelen:
 | Variabele        | Voorbeeld                                        |
 | ---------------- | ------------------------------------------------ |
 | `RESEND_API_KEY` | `re_xxxxxxxx` (Resend API key, zie resend.com/api-keys) |
-| `CONTACT_TO`     | `marcvankessel@gmail.com`                          |
+| `CONTACT_TO`     | `info@spoor7coverband.nl`                          |
 | `CONTACT_FROM`   | `Spoor 7 website <noreply@spoor7coverband.nl>`   |
 
 De afzender (`CONTACT_FROM`) moet een op een geverifieerd domein in Resend gebaseerd adres zijn.
@@ -46,7 +46,7 @@ Wrangler leest de secrets uit een `.dev.vars`-bestand (niet in git):
 
 ```
 RESEND_API_KEY=re_xxxxxxxx
-CONTACT_TO=marcvankessel@gmail.com
+CONTACT_TO=info@spoor7coverband.nl
 CONTACT_FROM=Spoor 7 website <noreply@spoor7coverband.nl>
 ```
 

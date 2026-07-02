@@ -3,7 +3,7 @@
 //
 // Required env vars (set in Cloudflare Pages → Settings → Environment variables):
 //   RESEND_API_KEY  Resend API token (https://resend.com/api-keys)
-//   CONTACT_TO      Recipient address, e.g. marcvankessel@gmail.com
+//   CONTACT_TO      Recipient address, e.g. info@spoor7coverband.nl
 //   CONTACT_FROM    Verified sender, e.g. "Spoor 7 website <noreply@spoor7coverband.nl>"
 
 export async function onRequestPost({ request, env }) {
@@ -44,7 +44,7 @@ export async function onRequestPost({ request, env }) {
       RESEND_API_KEY: !!apiKey, CONTACT_TO: !!contactTo, CONTACT_FROM: !!contactFrom,
     });
     return json(
-      { ok: false, error: "Het formulier is tijdelijk niet beschikbaar. Mail direct naar marcvankessel@gmail.com." },
+      { ok: false, error: "Het formulier is tijdelijk niet beschikbaar. Mail direct naar info@spoor7coverband.nl." },
       500,
     );
   }
@@ -78,7 +78,7 @@ export async function onRequestPost({ request, env }) {
   } catch (err) {
     console.error("Resend fetch threw:", err && err.message);
     return json(
-      { ok: false, error: "Verzenden mislukt, probeer het later opnieuw of mail direct naar marcvankessel@gmail.com." },
+      { ok: false, error: "Verzenden mislukt, probeer het later opnieuw of mail direct naar info@spoor7coverband.nl." },
       502,
     );
   }
@@ -87,7 +87,7 @@ export async function onRequestPost({ request, env }) {
     const detail = await resp.text().catch(() => "");
     console.error("Resend error", resp.status, detail);
     return json(
-      { ok: false, error: "Verzenden mislukt, probeer het later opnieuw of mail direct naar marcvankessel@gmail.com." },
+      { ok: false, error: "Verzenden mislukt, probeer het later opnieuw of mail direct naar info@spoor7coverband.nl." },
       502,
     );
   }

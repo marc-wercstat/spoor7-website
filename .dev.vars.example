@@ -1,4 +1,4 @@
 # Copy to .dev.vars (gitignored) and fill in for local `wrangler pages dev`.
 RESEND_API_KEY=re_xxxxxxxx
-CONTACT_TO=marcvankessel@gmail.com
+CONTACT_TO=info@spoor7coverband.nl
 CONTACT_FROM=Spoor 7 website <noreply@spoor7coverband.nl>
