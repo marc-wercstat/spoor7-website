@@ -16,6 +16,7 @@ nu een bruiloft is of een pleinfeest.
 De band bestaat uit muzikanten die al jaren samen op het podium staan, en daar nog steeds
 plezier in hebben. Dat plezier horen we graag terug in de zaal.
 
+
 > **Even voorstellen** — deze tekst en de namen/foto's van de bandleden vullen we nog aan.
 > Laat gerust weten wat je hier wilt vermelden.
 
