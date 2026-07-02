@@ -1,27 +1,25 @@
 ---
 title: "Over de band"
 eyebrow: "Wie zijn wij"
-subtitle: "Een hechte club muzikanten met één missie: de dansvloer laten swingen op de hits van de jaren 70 en 80."
-description: "Maak kennis met Spoor 7, de coverband die 70s & 80s klassiekers live tot leven brengt."
+subtitle: "Een club muzikanten die samen graag muziek uit de jaren 70 en 80 speelt."
+description: "Maak kennis met Spoor 7, coverband met muziek uit de jaren 70 en 80."
 ---
 
 ## Onze muziek
 
-Spoor 7 speelt de nummers waar je meteen vrolijk van wordt: disco, pop en rock uit de jaren
-70 en 80. Denk aan de grote namen van toen — stuk voor stuk herkenbaar, meezingbaar en gemaakt
-om op te dansen. We stemmen onze set af op jullie gelegenheid, of het nu een intieme bruiloft
-of een uitbundig festival is.
+Spoor 7 speelt disco, pop en rock uit de jaren 70 en 80 — nummers die de meeste mensen wel
+kennen en waar je goed op kunt dansen. We passen de set graag aan op de gelegenheid, of dat
+nu een bruiloft is of een pleinfeest.
 
 ## De bezetting
 
-De band bestaat uit ervaren muzikanten die het podium al jaren met plezier delen. Met een
-strakke ritmesectie, aanstekelijke gitaren en krachtige zang zorgen we voor een aanstekelijke
-liveshow.
+De band bestaat uit muzikanten die al jaren samen op het podium staan, en daar nog steeds
+plezier in hebben. Dat plezier horen we graag terug in de zaal.
 
 > **Even voorstellen** — deze tekst en de namen/foto's van de bandleden vullen we nog aan.
 > Laat gerust weten wat je hier wilt vermelden.
 
-## Zin in een optreden?
+## Interesse?
 
-Benieuwd wat Spoor 7 voor jullie feest kan betekenen? Bekijk de [foto's](/fotos/) voor een
-sfeerimpressie of [vraag direct een boeking aan](/contact/).
+Benieuwd naar de band? Bekijk de [foto's](/fotos/) voor een indruk, of
+[neem contact met ons op](/contact/).

@@ -17,19 +17,19 @@ enableGitInfo = true
     allow = ['^(dart-)?sass(-embedded)?$', '^go$', '^git$', '^npx$', '^postcss$']
 
 [params]
-  description = 'Coverband voor de lekkerste 70s & 80s hits — voor bruiloften, feesten en festivals'
-  email = 'marc@vankessel-it.com'
+  description = 'Coverband met muziek uit de jaren 70 en 80 — voor bruiloften, feesten en festivals'
+  #email = 'marc@vankessel-it.com'
   region = 'Zuid-Nederland'
   og_image = '/img/spoor_7_7_small_black_background.png'
   ogLocale = 'nl_NL'
 
 [[params.social]]
   name = 'Facebook'
-  url = 'https://www.facebook.com/'
+  url = 'https://www.facebook.com/profile.php?id=61591712780137'
 
 [[params.social]]
   name = 'Instagram'
-  url = 'https://www.instagram.com/'
+  url = 'https://www.facebook.com/profile.php?id=61591712780137'
 
 [menus]
   [[menus.main]]
@@ -40,10 +40,10 @@ enableGitInfo = true
     name = "Foto's"
     url = '/fotos/'
     weight = 20
-  [[menus.main]]
-    name = 'Over de band'
-    url = '/over/'
-    weight = 30
+  # [[menus.main]]
+  #   name = 'Over de band'
+  #   url = '/over/'
+  #   weight = 30
   [[menus.main]]
     name = 'Boeking & contact'
     url = '/contact/'
