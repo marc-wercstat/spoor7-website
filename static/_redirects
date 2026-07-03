@@ -1,0 +1,9 @@
+# --- ONDERHOUDSMODUS ---
+# De homepage (layouts/index.html) toont tijdelijk een onderhoudspagina.
+# Deze regels sturen de bekende subpagina's ook naar de homepage,
+# zodat directe/gebookmarkte links ook de onderhoudspagina tonen.
+# Assets (/img, /css, /js) worden bewust NIET geredirect zodat de pagina laadt.
+# Terugzetten: git revert van de onderhoudscommit (of dit bestand + layouts/index.html herstellen).
+/contact/*   /   302
+/fotos/*     /   302
+/over/*      /   302

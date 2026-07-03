@@ -1,81 +1,44 @@
-{{ define "main" }}
-{{ $hero := resources.Get "img/optreden_1.jpg" }}
-{{ $heroImg := ($hero.Resize "1800x q72").RelPermalink }}
-
-<section class="hero" style="background-image: linear-gradient(rgba(12,12,15,.62), rgba(12,12,15,.82)), url('{{ $heroImg }}');">
-  <div class="container hero-inner">
-    <img class="hero-logo" src="/img/spoor7_logo_white_2.svg" alt="Spoor 7" width="360" height="150">
-    <p class="hero-lead">{{ .Site.Params.description }}</p>
-    <div class="hero-actions">
-      <a href="/contact/" class="btn btn-primary">Neem contact op</a>
-      <a href="/fotos/" class="btn btn-ghost-light">Bekijk foto's</a>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container narrow section-center">
-    <p class="eyebrow">70s &amp; 80s coverband</p>
-    <h2>Muziek van toen, live gespeeld</h2>
-    <div class="prose">
-      {{ .Content }}
-    </div>
-  </div>
-</section>
-
-<section class="section section-alt">
-  <div class="container">
-    <div class="section-head section-center">
-      <p class="eyebrow">Waar spelen we?</p>
-      <h2>Voor elke gelegenheid</h2>
-    </div>
-    <ul class="cards">
-      <li class="card"><h3>Bruiloften</h3><p>Muziek voor jong en oud, van het eerste dansje tot het einde van de avond.</p></li>
-      <li class="card"><h3>Bedrijfsfeesten</h3><p>Een borrel, jubileum of personeelsfeest — wij zorgen voor de livemuziek.</p></li>
-      <li class="card"><h3>Festivals &amp; pleinfeesten</h3><p>Bekende nummers waar het publiek graag bij meezingt.</p></li>
-    </ul>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section-head section-center">
-      <p class="eyebrow">Sfeerimpressie</p>
-      <h2>Spoor 7 live</h2>
-    </div>
-    <div class="photo-strip">
-      {{ range slice "img/optreden_2.jpg" "img/optreden_3.jpg" "img/optreden_1.jpg" "img/optreden_4.jpg" }}
-        {{ $p := resources.Get . }}
-        {{ $t := $p.Fill "600x600 Center q78" }}
-        <a class="photo-strip-item" href="/fotos/">
-          <img src="{{ $t.RelPermalink }}" width="{{ $t.Width }}" height="{{ $t.Height }}" alt="Spoor 7 live" loading="lazy">
-        </a>
-      {{ end }}
-    </div>
-    <p class="section-center" style="margin-top:1.75rem;"><a href="/fotos/" class="btn btn-ghost">Alle foto's</a></p>
-  </div>
-</section>
-
-{{ with resources.Get "img/spoor7_poster.jpg" }}
-{{ $poster := .Resize "1200x q78" }}
-<section class="section section-alt">
-  <div class="container">
-    <div class="section-head section-center">
-      <p class="eyebrow">Affiche</p>
-      <h2>Spoor 7 op de bühne</h2>
-    </div>
-    <figure class="poster">
-      <img src="{{ $poster.RelPermalink }}" width="{{ $poster.Width }}" height="{{ $poster.Height }}" alt="Poster van Spoor 7" loading="lazy">
-    </figure>
-  </div>
-</section>
-{{ end }}
-
-<section class="section cta-band">
-  <div class="container narrow section-center">
-    <h2>Interesse in Spoor 7?</h2>
-    <p>Stuur ons een bericht met wat je in gedachten hebt, dan kijken we samen wat er mogelijk is.</p>
-    <p><a href="/contact/" class="btn btn-primary">Neem contact op</a></p>
-  </div>
-</section>
-{{ end }}
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Spoor 7 — Even offline</title>
+  <style>
+    :root { --gold: #d4a537; --bg: #0d0d0d; --fg: #f2f2f2; --muted: #a8a8a8; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      background: radial-gradient(120% 90% at 50% 0%, #1a1a1a 0%, var(--bg) 60%);
+      color: var(--fg);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      display: flex; align-items: center; justify-content: center;
+      min-height: 100%; padding: 2rem; text-align: center;
+    }
+    .card { max-width: 34rem; }
+    img.logo { width: min(240px, 60vw); height: auto; margin-bottom: 2rem; }
+    h1 {
+      text-transform: uppercase; letter-spacing: .04em;
+      font-size: clamp(1.8rem, 6vw, 2.8rem); font-weight: 700;
+      line-height: 1.1; margin-bottom: 1rem;
+    }
+    h1 .accent { color: var(--gold); }
+    p { color: var(--muted); font-size: 1.05rem; line-height: 1.6; margin-bottom: .75rem; }
+    a { color: var(--gold); text-decoration: none; font-weight: 600; }
+    a:hover { text-decoration: underline; }
+    .rule { width: 3rem; height: 3px; background: var(--gold); margin: 1.75rem auto; border: 0; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <img class="logo" src="/img/spoor7_logo_white_1.svg" alt="Spoor 7">
+    <h1>Even <span class="accent">offline</span></h1>
+    <hr class="rule">
+    <p>Onze website is tijdelijk in onderhoud. We zijn snel weer terug.</p>
+    <p>Boeking of vraag? Mail ons op<br>
+      <a href="mailto:info@spoor7coverband.nl">info@spoor7coverband.nl</a>
+    </p>
+  </main>
+</body>
+</html>
